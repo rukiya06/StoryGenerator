@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Writing Prompts and Story Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Creative Writing Prompts and Story Generator</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#prompts">Prompts</a></li>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h2>Unleash Your Creativity</h2>
+            <p>Generate unique writing prompts and creative storylines with AI-powered tools.</p>
+            <button id="getStarted">Get Started</button>
+        </section>
+
+        <!-- Prompts Section -->
+        <section id="prompts">
+            <h2>Generate a Prompt</h2>
+            <form id="promptForm">
+                <label for="promptInput">Choose a Prompt Category:</label>
+                <select id="promptInput">
+                    <option value="fantasy">Fantasy Prompts</option>
+                    <option value="sci-fi">Sci-Fi Prompts</option>
+                    <option value="mystery">Mystery Prompts</option>
+                    <option value="personal-growth">Personal Growth Prompts</option>
+                    <option value="love-connection">Love & Connection Prompts</option>
+                </select>
+                <button type="button" id="generatePrompt">Generate Prompt</button>
+            </form>
+            <div id="promptOutput"></div>
+        </section>
+
+        <!-- Stories Section -->
+        <section id="stories">
+            <h2>Create Your Story</h2>
+            <form id="storyForm">
+                <label for="storyInput">Start your story:</label>
+                <textarea id="storyInput" placeholder="Write the beginning of your story..."></textarea>
+                <button type="button" id="generateStory">Generate Story</button>
+            </form>
+            <div id="storyOutput"></div>
+            <button id="narrateStory">Narrate Story</button>
+            <button id="pauseNarration">Pause</button>
+            <button id="resumeNarration">Resume</button>
+            <button id="stopNarration">Stop</button>
+
+
+
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About the Project</h2>
+            <p>This platform combines the power of AI to help writers create compelling prompts and unique stories.</p>
+        </section>
+    </main>
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Welcome to Creative Writing Prompts!</h2>
+            <p>Use this platform to explore creative prompts and generate unique stories.</p>
+            <button id="closeModal">Okay</button>
+        </div>
+    </div>
+    
+
+    <footer>
+        <p>&copy; 2024 Creative Writing Project. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const prompts = {
+            fantasy: [
+                "You find a magical book that rewrites itself every time you open it.",
+                "A kingdom where the moon chooses the ruler, not the people.",
+                "A young witch's broom refuses to fly unless it hears a specific song.",
+                "A mysterious mirror reflects not your image, but your deepest, hidden fears.",
+                "Every time a person falls asleep, they wake up in a different world that’s connected to their dreams."
+            ],
+            "sci-fi": [
+                "A human astronaut lands on a planet where dreams are broadcast on TV.",
+                "You accidentally discover a code that controls reality.",
+                "A robot gains the ability to feel emotions and starts questioning its purpose.",
+                "In the year 3025, a technology emerges that allows people to download their consciousness into a new body.",
+                "In a world where time travel is possible, people hire themselves as guides for tourists visiting the past."
+            ],
+            "mystery": [
+                "Your reflection in the mirror starts doing things you aren’t doing.",
+                "A man receives a package containing an object he lost years ago.",
+                "A train departs on time, but none of the passengers are on board.",
+                "A man wakes up in a locked room with no memory of how he got there, and every clue leads him to believe his own mind is playing tricks on him.",
+                "A cryptic message is found in a bottle washed ashore, but the handwriting matches someone who died years ago."
+            ],
+            "personal-growth": [
+                "Think about your future self. What qualities or achievements do you hope to develop over the next five years?",
+                "What is a fear you've overcome, and how did it change your perspective on life?",
+                "Think about a person who has greatly impacted your life. What lessons did they teach you that helped you grow?",
+                "Write about a time you stepped out of your comfort zone and how it shaped who you are today.",
+                "Reflect on a time when you chose self-care over pleasing others. How did it benefit your well-being?"
+            ],
+            "love-connection": [
+                "Two people meet under unusual circumstances, and a deep, unexpected connection begins to grow.",
+                "You bump into someone you once knew in the past, and the sparks between you rekindle unexpectedly.",
+                "Two people from completely different worlds—one from the stars, the other from Earth—meet on a journey that will change the course of history and their hearts forever.",
+                "A mysterious stranger appears in your life at the most critical moment, and you realize that they’ve been watching over you for years, guiding you toward a future you never imagined.",
+                "A person’s love for someone isn’t enough to stop them from making a heartbreaking choice—what happens when love clashes with fate?"
+            ]
+        };
+
+        document.getElementById("generatePrompt").addEventListener("click", () => {
+            const category = document.getElementById("promptInput").value;
+            const randomPrompt = prompts[category][Math.floor(Math.random() * prompts[category].length)];
+            document.getElementById("promptOutput").innerText = randomPrompt;
+        });
+    </script>
+</body>
+</html>
